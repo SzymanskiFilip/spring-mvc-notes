@@ -1,0 +1,13 @@
+NOTES
+ -mysql [x]
+ -mvc thymeleaf
+ -security userservice
+ 
+URL
+ -/ home login link
+ -/login
+ -/logout
+ -/notes
+ 
+
+user = id, username, password, firstname, lastname
