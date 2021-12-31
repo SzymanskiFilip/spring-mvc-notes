@@ -13,7 +13,7 @@ public class NotesController {
     @GetMapping("/notes")
     public String notes(Model model){
         log.info("/ - ENDPOINT HIT");
-        model.addAttribute("note", new Note(2,2, "My First  note!"));
+        model.addAttribute("note", new Note(2L,2L, "My First  note!"));
         return "notes";
     }
 
