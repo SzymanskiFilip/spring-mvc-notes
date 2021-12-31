@@ -15,4 +15,8 @@ public class Note {
         this.id = id;
         this.content = content;
     }
+
+    public Note(String content){
+        this.content = content;
+    }
 }
