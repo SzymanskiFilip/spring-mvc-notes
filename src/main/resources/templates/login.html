@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App - Add Note</title>
 </head>
+
 <body>
-$END$
+<h1>Login</h1>
+<form th:action="@{/login}" method="POST">
+    <label th:for="username">Username:</label>
+    <input th:type="text" name="username"></br>
+
+    <label th:for="password">Password: </label>
+    <input th:type="password" name="password"><br/>
+
+    <input th:type="submit" value="Login">
+
+</form>
 </body>
 </html>
