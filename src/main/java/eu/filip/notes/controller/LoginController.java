@@ -12,4 +12,9 @@ public class LoginController {
         log.info("/login - ENDPOINT HIT");
         return "login";
     }
+
+    @GetMapping("/logout")
+    public String logout(){
+        return "logout";
+    }
 }
