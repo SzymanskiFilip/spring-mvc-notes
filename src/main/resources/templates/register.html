@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link th:href="@{login.css}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,100;1,200;1,900&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-$END$
+<form th:action="@{/register}" method="POST">
+    <label th:for="username">Username:</label>
+    <input type="text" name="username">
+    <br/><br/>
+    <label th:for="first_name">First Name:</label>
+    <input type="text" name="first_name">
+    <label th:for="last_name">Last Name:</label>
+    <input type="text" name="last_name">
+    <br/><br/>
+    <label th:for="password">Password: </label>
+    <input :type="password" name="password">
+    <label th:for="password">Confirm Password: </label>
+    <input :type="password" name="password">
+
+    <input type="submit" value="Register">
+    <p>Already have an account?</p>
+    <a th:href="@{login}">Sign in here</a>
+</form>
+
+
 </body>
 </html>
