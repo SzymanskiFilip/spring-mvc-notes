@@ -1,24 +1,29 @@
 package eu.filip.notes.config;
 
+import eu.filip.notes.service.UserRepositoryUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    UserRepositoryUserDetailsService userDetailsService;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("filip")
-                .password("{noop}1234")
-                .authorities("ROLE_USER")
-                .and()
-                .withUser("dawid")
-                .password("{noop}4321")
-                .authorities("ROLE_USER");
+        auth
+                .userDetailsService(userDetailsService)
+                .passwordEncoder(new BCryptPasswordEncoder());
     }
 
     @Override
@@ -32,13 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .defaultSuccessUrl("/notes")
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .invalidateHttpSession(true)
-                .deleteCookies();
+                .defaultSuccessUrl("/notes");
 
     }
 
