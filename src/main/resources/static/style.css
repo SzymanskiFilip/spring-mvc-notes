@@ -1,3 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins";
+}
+
 body{
-    background-color: blue;
+    background-color: #111111;
+}
+
+.logo-text{
+    margin: 25px;
+    color: white;
+    font-weight: 300;
+    text-align: center;
+    font-size: 50px;
+}
+
+.main-page-div{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.main-page-div p{
+    text-align: center;
+    width: fit-content;
+}
+
+.buttons{
+    margin-top: 15%;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 3rem;
+    margin: 25px;
+    transition: 0.3s;
+}
+
+a:hover{
+    text-shadow: 1px 1px 10px rgb(126, 96, 96);
 }

@@ -1,15 +1,25 @@
-<html   xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{style.css}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,100;1,200;1,900&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap"
+          rel="stylesheet">
     <title>Notes App - Homepage</title>
 </head>
 
 <body>
-<h1 th:text="${text}"></h1>
-
+    <h1 class="logo-text">Welcome to the Notes App!</h1>
+    <div class="main-page-div">
+        <p>In the notes app you can create your own notes and save them to read them later, it is great to save your ideas!</p>
+        <div class="buttons">
+            <a th:href="@{/login}">Sign In</a>
+            <a th:href="@{/testU}">Sign Up</a>
+        </div>
+    </div>
 </body>
 </html>
