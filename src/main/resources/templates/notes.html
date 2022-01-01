@@ -5,10 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes App - Your Notes</title>
+    <link th:href="@{notes.css}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,100;1,200;1,900&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<h1 th:text="${note.getContent()}"></h1>
-
+<div class="notes-container">
+    <div class="note">
+        <div class="data">
+            <h1>Title</h1>
+            <h1>Date: 11.11.2011</h1>
+        </div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, consequatur voluptates. Adipisci doloremque impedit tempora cumque obcaecati exercitationem dicta, vel corporis tempore temporibus minus deleniti sapiente fugiat odio odit in!</p>
+        <div class="btn-container">
+            <button class="green">Edit</button>
+            <button class="red">Delete</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
