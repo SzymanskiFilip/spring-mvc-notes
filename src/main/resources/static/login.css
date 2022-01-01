@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins";
+}
+body{
+    background-color: #111111;
+}
+form{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+label{
+    color: white;
+    font-size: 25px;
+}
+input{
+    outline: none;
+    padding: 10px;
+    font-size: 25px;
+}
+input[type=submit]{
+    margin: 20px;
+}
+input[type=submit]:hover{
+    cursor: pointer;
+}
+p{
+    color: white;
+}
+a{
+    color: white;
+}
