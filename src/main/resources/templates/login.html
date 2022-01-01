@@ -6,19 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes App - Add Note</title>
+    <link th:href="@{login.css}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,100;1,200;1,900&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
-<h1>Login</h1>
 <form th:action="@{/login}" method="POST">
     <label th:for="username">Username:</label>
-    <input th:type="text" name="username"></br>
-
+    <input type="text" name="username">
     <label th:for="password">Password: </label>
-    <input th:type="password" name="password"><br/>
-
-    <input th:type="submit" value="Login">
-
+    <input :type="password" name="password">
+    <input type="submit" value="Login">
+    <p>Don't have an account yet?</p>
+    <a href="@{/testU}">Create one here!</a>
 </form>
 </body>
 </html>
