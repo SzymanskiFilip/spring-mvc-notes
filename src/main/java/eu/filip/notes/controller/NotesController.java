@@ -7,13 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.sql.Date;
+
 @Controller
 @Slf4j
 public class NotesController {
     @GetMapping("/notes")
     public String notes(Model model){
         log.info("/ - ENDPOINT HIT");
-        model.addAttribute("note", new Note(2L,2L, "My First  note!"));
+        model.addAttribute("note", new Note(2L,2L, "My First  note!", "First note title", new Date(2004,03,11)));
         return "notes";
     }
 

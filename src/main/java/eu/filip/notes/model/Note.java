@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Data
 @NoArgsConstructor
@@ -19,6 +20,8 @@ public class Note {
     private Long id;
     private Long user_id;
     private String content;
+    private String title;
+    private Date creation_date;
 
     public Note(String content){
         this.content = content;
