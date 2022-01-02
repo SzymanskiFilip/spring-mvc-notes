@@ -17,12 +17,12 @@
     <a th:href="@{/logout}">Sign out</a>
 </div>
 <div class="notes-container">
-    <div class="note">
+    <div class="note" th:each="note: ${notes}">
         <div class="data">
-            <h1>Title</h1>
-            <h1>Date: 11.11.2011</h1>
+            <h1 th:text="${note.title}"></h1>
+            <h1 th:text="${note.getCreation_date()}"></h1>
         </div>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, consequatur voluptates. Adipisci doloremque impedit tempora cumque obcaecati exercitationem dicta, vel corporis tempore temporibus minus deleniti sapiente fugiat odio odit in!</p>
+        <p th:text="${note.content}"></p>
         <div class="btn-container">
             <button class="green">Edit</button>
             <button class="red">Delete</button>
