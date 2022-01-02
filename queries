@@ -1,0 +1,2 @@
+SELECT notes.id, users.id, users.username, notes.title, notes.content, notes.creation_date FROM notes JOIN users ON notes.user_id = users.id;
+SELECT id FROM users WHERE username = 'filip';
