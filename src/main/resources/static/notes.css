@@ -8,6 +8,28 @@ body{
     background-color: #111111;
 }
 
+.bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.bar a{
+    color: white;
+    text-decoration: none;
+    margin: 20px;
+    padding: 10px;
+    transition: 0.3s;
+    border-radius: 5%;
+
+}
+
+.bar a:hover{
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
+
 .notes-container{
     margin: 25px;
     color: white;
@@ -24,7 +46,6 @@ body{
     flex-direction: column;
     justify-content: center;
 }
-
 
 .data{
     display: flex;
