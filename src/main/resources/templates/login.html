@@ -19,7 +19,7 @@
     <input type="text" name="username">
     <label th:for="password">Password: </label>
     <input th:type="password" name="password">
-    <span th:if="${param.error}" class="error">Wrong username or password!</span>
+    <span th:if="${param.error}">Wrong username or password!</span>
     <input type="submit" value="Login">
     <p>Don't have an account yet?</p>
     <a th:href="@{/register}">Create one here!</a>
