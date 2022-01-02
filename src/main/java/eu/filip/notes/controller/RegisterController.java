@@ -46,7 +46,7 @@ public class RegisterController {
         if(bindingResult.hasErrors() || registrationData.isPasswordsDontMatch()){
             return "register";
         } else {
-            
+
         }
         return "redirect:/login";
     }

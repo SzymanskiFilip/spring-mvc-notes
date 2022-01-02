@@ -11,19 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,900;1,100;1,200;1,900&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<form th:action="@{/register}" method="POST">
+<form th:action="@{/register}" method="POST" th:object="${registrationData}">
     <label th:for="username">Username:</label>
-    <input type="text" name="username">
+    <input type="text" name="username" th:value="${registrationData.username}">
     <br/><br/>
     <label th:for="first_name">First Name:</label>
-    <input type="text" name="first_name">
+    <input type="text" name="first_name" th:value="${registrationData.first_name}">
     <label th:for="last_name">Last Name:</label>
-    <input type="text" name="last_name">
+    <input type="text" name="last_name" th:value="${registrationData.last_name}">
     <br/><br/>
     <label th:for="password">Password: </label>
-    <input :type="password" name="password">
-    <label th:for="password">Confirm Password: </label>
-    <input :type="password" name="password">
+    <input th:type="password" name="password" th:value="${registrationData.password}">
+    <span th:if="${#fields.hasErrors('password')}">Passwords have to be at least 6 characters long!</span>
+    <label th:for="password_confirmation">Confirm Password: </label>
+    <input th:type="password" name="password_confirmation" th:value="${registrationData.password_confirmation}">
+    <span th:if="${registrationData.passwordsDontMatch}">Passwords dont match!</span>
 
     <input type="submit" value="Register">
     <p>Already have an account?</p>
