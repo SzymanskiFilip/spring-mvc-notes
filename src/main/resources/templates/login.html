@@ -18,7 +18,7 @@
     <label th:for="username">Username:</label>
     <input type="text" name="username">
     <label th:for="password">Password: </label>
-    <input :type="password" name="password">
+    <input th:type="password" name="password">
     <input type="submit" value="Login">
     <p>Don't have an account yet?</p>
     <a th:href="@{/register}">Create one here!</a>
