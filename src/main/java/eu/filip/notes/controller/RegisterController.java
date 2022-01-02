@@ -1,10 +1,13 @@
 package eu.filip.notes.controller;
 
 import eu.filip.notes.model.RegistrationData;
+import eu.filip.notes.model.User;
 import eu.filip.notes.service.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,7 +23,11 @@ import javax.validation.Valid;
 @Controller
 public class RegisterController {
 
-    UserRepository userRepository;
+    private UserRepository userRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     public RegisterController(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -46,7 +53,15 @@ public class RegisterController {
         if(bindingResult.hasErrors() || registrationData.isPasswordsDontMatch()){
             return "register";
         } else {
-
+            User user = new User(
+                    1L,
+                    registrationData.getUsername(),
+                    bCryptPasswordEncoder.encode(registrationData.getPassword()),
+                    registrationData.getFirst_name(),
+                    registrationData.getLast_name()
+            );
+            log.info(user.toString());
+            userRepository.save(user);
         }
         return "redirect:/login";
     }
