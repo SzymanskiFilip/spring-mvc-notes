@@ -20,6 +20,7 @@ import java.util.Arrays;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", insertable = false)
     private Long id;
     private String username;
     private String password;
