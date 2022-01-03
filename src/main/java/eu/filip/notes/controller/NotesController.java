@@ -4,7 +4,6 @@ import eu.filip.notes.model.Note;
 import eu.filip.notes.service.NotesRepository;
 import eu.filip.notes.service.UserRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -12,7 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Controller
@@ -21,6 +24,9 @@ public class NotesController {
 
     UserRepository userRepository;
     NotesRepository notesRepository;
+
+    @Temporal(TemporalType.DATE)
+    Date date;
 
 
     public NotesController(UserRepository ur, NotesRepository nr){
@@ -45,8 +51,24 @@ public class NotesController {
     }
 
     @PostMapping("/add")
-    public String add(Note note){
-        log.info("added new note:" + note.toString());
+    public String add(Note note, Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Long userID = userRepository.findByUsername(auth.getName()).getId();
+        updateCurrentDate();
+
+
+        Note toAdd = new Note();
+        toAdd.setUser_id(userID);
+        toAdd.setCreation_date(date);
+        toAdd.setTitle(note.getTitle());
+        toAdd.setContent(note.getContent());
+        notesRepository.save(toAdd);
+        
         return "notes";
+    }
+
+
+    private void updateCurrentDate(){
+        this.date = new Date(System.currentTimeMillis());
     }
 }
