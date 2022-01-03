@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins";
+}
+
+body{
+    background-color: #111111;
+}
+
+h1{
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+}
+
+form{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea{
+    height: 50%;
+    width: 50%;
+    outline: none;
+    padding: 10px;
+    resize: none;
+}
+
+input[type=submit]{
+    margin: 20px;
+    padding: 10px;
+}
