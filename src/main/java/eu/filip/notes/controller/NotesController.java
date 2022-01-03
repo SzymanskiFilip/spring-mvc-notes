@@ -65,7 +65,7 @@ public class NotesController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long id){
-        log.info("Deleting " + id);
+        notesRepository.deleteById(id);
         return "redirect:/notes";
     }
 
