@@ -8,14 +8,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Controller
@@ -25,14 +22,13 @@ public class NotesController {
     UserRepository userRepository;
     NotesRepository notesRepository;
 
-    @Temporal(TemporalType.DATE)
-    Date date;
-
-
     public NotesController(UserRepository ur, NotesRepository nr){
         this.userRepository = ur;
         this.notesRepository = nr;
     }
+
+    @Temporal(TemporalType.DATE)
+    Date date;
 
 
     @GetMapping("/notes")
@@ -51,7 +47,7 @@ public class NotesController {
     }
 
     @PostMapping("/add")
-    public String add(Note note, Model model){
+    public String add(Note note){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Long userID = userRepository.findByUsername(auth.getName()).getId();
         updateCurrentDate();
@@ -64,6 +60,12 @@ public class NotesController {
         toAdd.setContent(note.getContent());
         notesRepository.save(toAdd);
 
+        return "redirect:/notes";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id){
+        log.info("Deleting " + id);
         return "redirect:/notes";
     }
 
