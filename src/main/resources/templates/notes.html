@@ -24,8 +24,7 @@
         </div>
         <p th:text="${note.content}"></p>
         <div class="btn-container">
-            <button class="green">Edit</button>
-            <button class="red">Delete</button>
+            <a class="red" th:href="@{/delete/{id}(id=${note.getId()})}">Delete</a>
         </div>
     </div>
 </div>
