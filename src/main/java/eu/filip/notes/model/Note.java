@@ -10,13 +10,13 @@ import java.sql.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
 @Table(name = "notes")
 public class Note {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", insertable = false)
     private Long id;
     private Long user_id;
     private String content;
