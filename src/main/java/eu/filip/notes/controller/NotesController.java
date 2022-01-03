@@ -40,14 +40,13 @@ public class NotesController {
 
     @GetMapping("/add")
     public String add(Model model){
-        log.info("/add - ENDPOINT HIT");
-        model.addAttribute("note", new Note());
+        model.addAttribute("Note", new Note());
         return "add";
     }
 
     @PostMapping("/add")
     public String add(Note note){
         log.info("added new note:" + note.toString());
-        return "home";
+        return "notes";
     }
 }
