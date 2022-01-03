@@ -63,8 +63,8 @@ public class NotesController {
         toAdd.setTitle(note.getTitle());
         toAdd.setContent(note.getContent());
         notesRepository.save(toAdd);
-        
-        return "notes";
+
+        return "redirect:/notes";
     }
 
 
