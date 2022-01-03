@@ -65,7 +65,9 @@ public class NotesController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long id){
-        notesRepository.deleteById(id);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Long userID = userRepository.findByUsername(auth.getName()).getId();
+        notesRepository.deleteByIdAndUser_id(id, userID);
         return "redirect:/notes";
     }
 
