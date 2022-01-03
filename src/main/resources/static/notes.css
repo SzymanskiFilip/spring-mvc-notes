@@ -50,7 +50,7 @@ body{
 .data{
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
+    justify-content:space-around;
     align-items: center;
 }
 
@@ -60,14 +60,15 @@ body{
     justify-content: space-around;
 }
 
-button{
+a{
+    text-align: center;
     margin: 20px;
     padding: 5px;
-    border: none;
     border-radius: 5%;
-    color: white;
     min-width: 60px;
     transition: 0.3s;
+    text-decoration: none;
+    color: white;
 }
 
 .red{
@@ -78,7 +79,7 @@ button{
     background-color: green;
 }
 
-button:hover{
+a:hover{
     cursor: pointer;
     opacity: 90%;
 }
