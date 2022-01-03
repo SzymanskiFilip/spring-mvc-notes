@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public interface NotesRepository extends CrudRepository<Note, Long> {
     ArrayList<Note> findAll();
+
     @Query(value = "SELECT * FROM notes WHERE user_id = ?1", nativeQuery = true)
     ArrayList<Note> findByUserID(Long id);
+    void deleteById(Long id);
 }
